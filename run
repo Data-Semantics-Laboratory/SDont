@@ -1,0 +1,4 @@
+#
+mvn clean package
+#
+./target/sdont-0.0.1-SNAPSHOT.jar
