@@ -1,0 +1,174 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.daselab.org/MicroblogEntry#"
+     xml:base="http://www.daselab.org/MicroblogEntry"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.daselab.org/MicroblogEntry"/>
+    
+
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.daselab.org/daselab.org/MicroblogEntry#hasPayload -->
+
+    <owl:ObjectProperty rdf:about="http://www.daselab.org/daselab.org/MicroblogEntry#hasPayload">
+        <rdfs:domain rdf:resource="http://www.daselab.org/daselab.org/MicroblogEntry#MicroblogEntry"/>
+        <rdfs:range rdf:resource="http://www.daselab.org/daselab.org/MicroblogEntry#Payload"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daselab.org/daselab.org/MicroblogEntry#hasTimestamp -->
+
+    <owl:ObjectProperty rdf:about="http://www.daselab.org/daselab.org/MicroblogEntry#hasTimestamp">
+        <rdfs:domain rdf:resource="http://www.daselab.org/daselab.org/MicroblogEntry#MicroblogEntry"/>
+        <rdfs:range rdf:resource="http://www.daselab.org/daselab.org/MicroblogEntry#Instant"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daselab.org/daselab.org/MicroblogEntry#hasTrustScore -->
+
+    <owl:ObjectProperty rdf:about="http://www.daselab.org/daselab.org/MicroblogEntry#hasTrustScore">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.daselab.org/daselab.org/MicroblogEntry#Agent"/>
+                    <rdf:Description rdf:about="http://www.daselab.org/daselab.org/MicroblogEntry#MicroblogEntry"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.daselab.org/daselab.org/MicroblogEntry#TrustMetric"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daselab.org/daselab.org/MicroblogEntry#presentedOn -->
+
+    <owl:ObjectProperty rdf:about="http://www.daselab.org/daselab.org/MicroblogEntry#presentedOn">
+        <rdfs:domain rdf:resource="http://www.daselab.org/daselab.org/MicroblogEntry#MicroblogEntry"/>
+        <rdfs:range rdf:resource="http://www.daselab.org/daselab.org/MicroblogEntry#Media"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daselab.org/daselab.org/MicroblogEntry#referencesTopic -->
+
+    <owl:ObjectProperty rdf:about="http://www.daselab.org/daselab.org/MicroblogEntry#referencesTopic">
+        <rdfs:domain rdf:resource="http://www.daselab.org/daselab.org/MicroblogEntry#Payload"/>
+        <rdfs:range rdf:resource="http://www.daselab.org/daselab.org/MicroblogEntry#Topic"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daselab.org/daselab.org/MicroblogEntry#writtenAt -->
+
+    <owl:ObjectProperty rdf:about="http://www.daselab.org/daselab.org/MicroblogEntry#writtenAt">
+        <rdfs:domain rdf:resource="http://www.daselab.org/daselab.org/MicroblogEntry#MicroblogEntry"/>
+        <rdfs:range rdf:resource="http://www.daselab.org/daselab.org/MicroblogEntry#Location"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daselab.org/daselab.org/MicroblogEntry#writtenBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.daselab.org/daselab.org/MicroblogEntry#writtenBy">
+        <rdfs:domain rdf:resource="http://www.daselab.org/daselab.org/MicroblogEntry#MicroblogEntry"/>
+        <rdfs:range rdf:resource="http://www.daselab.org/daselab.org/MicroblogEntry#Agent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.daselab.org/daselab.org/MicroblogEntry#Agent -->
+
+    <owl:Class rdf:about="http://www.daselab.org/daselab.org/MicroblogEntry#Agent" />
+    
+
+
+    <!-- http://www.daselab.org/daselab.org/MicroblogEntry#Entity -->
+
+    <owl:Class rdf:about="http://www.daselab.org/daselab.org/MicroblogEntry#Entity"/>
+    
+
+
+    <!-- http://www.daselab.org/daselab.org/MicroblogEntry#Instant -->
+
+    <owl:Class rdf:about="http://www.daselab.org/daselab.org/MicroblogEntry#Instant"/>
+    
+
+
+    <!-- http://www.daselab.org/daselab.org/MicroblogEntry#Location -->
+
+    <owl:Class rdf:about="http://www.daselab.org/daselab.org/MicroblogEntry#Location"/>
+    
+
+
+    <!-- http://www.daselab.org/daselab.org/MicroblogEntry#Media -->
+
+    <owl:Class rdf:about="http://www.daselab.org/daselab.org/MicroblogEntry#Media">
+        <rdfs:subClassOf rdf:resource="http://www.daselab.org/daselab.org/MicroblogEntry#Entity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.daselab.org/daselab.org/MicroblogEntry#MicroblogEntry -->
+
+    <owl:Class rdf:about="http://www.daselab.org/daselab.org/MicroblogEntry#MicroblogEntry">
+        <rdfs:subClassOf rdf:resource="http://www.daselab.org/daselab.org/MicroblogEntry#ReportingEvent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.daselab.org/daselab.org/MicroblogEntry#Payload -->
+
+    <owl:Class rdf:about="http://www.daselab.org/daselab.org/MicroblogEntry#Payload"/>
+    
+
+
+    <!-- http://www.daselab.org/daselab.org/MicroblogEntry#ReportingEvent -->
+
+    <owl:Class rdf:about="http://www.daselab.org/daselab.org/MicroblogEntry#ReportingEvent"/>
+    
+
+
+    <!-- http://www.daselab.org/daselab.org/MicroblogEntry#Topic -->
+
+    <owl:Class rdf:about="http://www.daselab.org/daselab.org/MicroblogEntry#Topic"/>
+    
+
+
+    <!-- http://www.daselab.org/daselab.org/MicroblogEntry#TrustMetric -->
+
+    <owl:Class rdf:about="http://www.daselab.org/daselab.org/MicroblogEntry#TrustMetric"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.5.20160517-0735) https://github.com/owlcs/owlapi -->
+
