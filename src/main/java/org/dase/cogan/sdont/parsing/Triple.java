@@ -1,4 +1,4 @@
-package org.dase.cogan.sdont.viz;
+package org.dase.cogan.sdont.parsing;
 
 /**
  * 
@@ -13,11 +13,14 @@ public class Triple
 	private String to;
 	private String pr;
 
+	private boolean isSubClass;
+	
 	public Triple(String fr, String to, String pr)
 	{
 		this.fr = fr;
 		this.to = to;
 		this.pr = pr;
+		this.isSubClass = false;
 	}
 	
 	public Triple(String fr, String to)
@@ -25,28 +28,44 @@ public class Triple
 		this.fr = fr;
 		this.to= to;
 		this.pr = "SUBCLASS";
+		this.isSubClass = true;
 	}
 	
+	public boolean isSubClass()
+	{
+		return isSubClass;
+	}
+
+	public void setSubClass(boolean isSubClass)
+	{
+		this.isSubClass = isSubClass;
+	}
+
 	public String getFr()
 	{
 		return fr;
 	}
+	
 	public void setFr(String fr)
 	{
 		this.fr = fr;
 	}
+	
 	public String getTo()
 	{
 		return to;
 	}
+	
 	public void setTo(String to)
 	{
 		this.to = to;
 	}
+	
 	public String getPr()
 	{
 		return pr;
 	}
+	
 	public void setPr(String pr)
 	{
 		this.pr = pr;

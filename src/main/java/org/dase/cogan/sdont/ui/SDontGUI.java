@@ -10,7 +10,7 @@ import javax.swing.WindowConstants;
 
 public class SDontGUI
 {
-	public SDontGUI()
+	public void run()
 	{
 		// create a top-level window and add the graph component.
 		JFrame frame = new JFrame("SD4ODP");

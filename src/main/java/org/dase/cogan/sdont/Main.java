@@ -2,16 +2,12 @@ package org.dase.cogan.sdont;
 
 import org.dase.cogan.sdont.ui.SDontConsole;
 import org.dase.cogan.sdont.ui.SDontGUI;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * @author Cogan Shimizu
  */
 public class Main
 {
-	private static final Logger	log	= LoggerFactory.getLogger(Main.class);
-
 	public static void main(String[] args)
 	{
 		// -d opens the debugging window
@@ -21,7 +17,7 @@ public class Main
 		}
 		else
 		{
-			SDontGUI gui = new SDontGUI();
+			(new SDontGUI()).run();
 		}
 	}
 }

@@ -1,5 +1,7 @@
 package org.dase.cogan.sdont.viz;
 
+import org.dase.cogan.sdont.parsing.Triple;
+
 public interface EdgeMaker
 {
 	public SDEdge makeRoleEdge(Triple t);

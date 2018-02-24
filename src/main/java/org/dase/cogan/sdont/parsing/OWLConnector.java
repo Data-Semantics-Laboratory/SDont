@@ -6,17 +6,21 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import org.semanticweb.owlapi.apibinding.OWLManager;
+import org.semanticweb.owlapi.model.AxiomType;
 import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.MissingImportHandlingStrategy;
 import org.semanticweb.owlapi.model.OWLAxiom;
 import org.semanticweb.owlapi.model.OWLClass;
 import org.semanticweb.owlapi.model.OWLDataFactory;
 import org.semanticweb.owlapi.model.OWLDataProperty;
+import org.semanticweb.owlapi.model.OWLDataPropertyAxiom;
 import org.semanticweb.owlapi.model.OWLDatatype;
 import org.semanticweb.owlapi.model.OWLObjectProperty;
+import org.semanticweb.owlapi.model.OWLObjectPropertyAxiom;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
+import org.semanticweb.owlapi.model.OWLSubClassOfAxiom;
 
 public class OWLConnector
 {
@@ -61,6 +65,21 @@ public class OWLConnector
 	public List<OWLAxiom> retrieveAxioms()
 	{
 		return asList(this.ontology.axioms());
+	}
+	
+	public List<OWLSubClassOfAxiom> retrieveSubClassAxioms()
+	{
+		return asList(this.ontology.axioms(AxiomType.SUBCLASS_OF));
+	}
+	
+	public List<OWLObjectPropertyAxiom> retreiveAxiomsRelatedToObjProp(OWLObjectProperty op)
+	{
+		return asList(this.ontology.axioms(op));
+	}
+	
+	public List<OWLDataPropertyAxiom> retreiveAxiomsRelatedToDataProp(OWLDataProperty dp)
+	{
+		return asList(this.ontology.axioms(dp));
 	}
 	
 	private static <T> List<T> asList(Stream<T> s)
