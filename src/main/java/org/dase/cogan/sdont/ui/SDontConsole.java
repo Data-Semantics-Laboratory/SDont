@@ -9,6 +9,21 @@ import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 
 public class SDontConsole
 {
+	public void run(String filename)
+	{
+		try
+		{
+			OntologyParser ontologyParser = new OntologyParser("resources/" + filename);
+			SDGraph graph = ontologyParser.parseOntology();
+			SDMaker maker = new SDMaker(graph);
+			maker.visualize();
+		}
+		catch(OWLOntologyCreationException e)
+		{
+			System.out.println("Could not create ontology from file: " + filename);
+		}
+	}
+	
 	public void run()
 	{
 		Scanner keyboard = new Scanner(System.in);

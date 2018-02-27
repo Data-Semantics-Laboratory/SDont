@@ -15,6 +15,10 @@ public class Main
 		{
 			(new SDontConsole()).run();
 		}
+		else if(args.length == 2 && args[0].equals("-t"))
+		{
+			(new SDontConsole()).run(args[1]);
+		}
 		else
 		{
 			(new SDontGUI()).run();

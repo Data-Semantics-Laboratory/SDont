@@ -8,24 +8,25 @@ import org.dase.cogan.sdont.model.SDGraph;
 import org.dase.cogan.sdont.model.SDNode;
 import org.dase.cogan.sdont.ui.SDontViewFrame;
 
+import com.mxgraph.layout.mxFastOrganicLayout;
 import com.mxgraph.swing.mxGraphComponent;
 import com.mxgraph.view.mxGraph;
 
 public class SDMaker
 {
-	private SDGraph		sdGraph;
-	private mxGraph		mxGraph;
+	private SDGraph				sdGraph;
+	private mxGraph				mxGraph;
 	private NodeMaker<Object>	vertexMaker;
 	private EdgeMaker<Object>	edgeMaker;
 
-	private Map<String, Object> vertices;
-	private Map<String, Object> edges;
-	
+	private Map<String, Object>	vertices;
+
 	public SDMaker(SDGraph sdGraph)
 	{
 		this.sdGraph = sdGraph;
-
+		// Create an mxgraph
 		this.mxGraph = new mxGraph();
+		// Create the makers for the cells
 		this.vertexMaker = new mxVertexMaker(mxGraph);
 		this.edgeMaker = new mxEdgeMaker(mxGraph);
 	}
@@ -34,6 +35,8 @@ public class SDMaker
 	{
 		// Make the graph
 		makeGraph();
+		// set the layout for the graph
+		executeLayout();
 		// Create and display the visualization
 		mxGraphComponent graphComponent = new mxGraphComponent(this.mxGraph);
 		@SuppressWarnings("unused")
@@ -50,6 +53,13 @@ public class SDMaker
 		makeEdges(parent);
 	}
 
+	private void executeLayout()
+	{
+		Object parent = mxGraph.getDefaultParent();
+		mxFastOrganicLayout fol = new mxFastOrganicLayout(this.mxGraph);
+		fol.execute(parent);
+	}
+	
 	private void makeVertices(Object parent)
 	{
 		// Get all nodes from sdgraph
@@ -71,24 +81,21 @@ public class SDMaker
 		}
 	}
 
+	/**
+	 * Unfortunately, due to limitations of the implementations of creating and
+	 * adding an edge, the source and target of an edge are only set when they
+	 * are added to the model. This breaks our implementation of making the edge
+	 * and adding the edge to the model, separately. Thus, in the makeEdges call
+	 * above, we use insertEdge instead of createEdge, thus removing the nead
+	 * for an analogous (to makeNodes) update try/catch block here.
+	 * 
+	 * @param parent
+	 */
 	private void makeEdges(Object parent)
 	{
 		// Get all edges from the sdgraph
 		Set<SDEdge> edgeset = this.sdGraph.getEdgeSet();
 		// Create the visualizations of the edges
-		this.edges = this.edgeMaker.makeEdges(edgeset, this.vertices);
-		// Add them all to the graph
-		this.mxGraph.getModel().beginUpdate();
-		try
-		{
-			for(Object edge : edges.values())
-			{
-				this.mxGraph.addCell(edge);
-			}
-		}
-		finally
-		{
-			this.mxGraph.getModel().endUpdate();
-		}
+		this.edgeMaker.makeEdges(edgeset, this.vertices);
 	}
 }
