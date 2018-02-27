@@ -2,9 +2,9 @@ package org.dase.cogan.sdont.parsing;
 
 import java.util.Set;
 
-import org.dase.cogan.sdont.viz.SDEdge;
-import org.dase.cogan.sdont.viz.SDGraph;
-import org.dase.cogan.sdont.viz.SDNode;
+import org.dase.cogan.sdont.model.SDEdge;
+import org.dase.cogan.sdont.model.SDGraph;
+import org.dase.cogan.sdont.model.SDNode;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 
 public class OntologyParser

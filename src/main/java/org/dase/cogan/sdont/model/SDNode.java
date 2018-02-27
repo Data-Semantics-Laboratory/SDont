@@ -1,4 +1,4 @@
-package org.dase.cogan.sdont.viz;
+package org.dase.cogan.sdont.model;
 
 public class SDNode
 {

@@ -5,9 +5,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.dase.cogan.sdont.viz.SDEdge;
-import org.dase.cogan.sdont.viz.SDEdgeFactory;
-import org.dase.cogan.sdont.viz.SDNode;
+import org.dase.cogan.sdont.model.SDEdge;
+import org.dase.cogan.sdont.model.SDEdgeFactory;
+import org.dase.cogan.sdont.model.SDNode;
 import org.semanticweb.owlapi.model.AxiomType;
 import org.semanticweb.owlapi.model.ClassExpressionType;
 import org.semanticweb.owlapi.model.HasFiller;

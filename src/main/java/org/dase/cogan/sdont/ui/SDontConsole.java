@@ -2,8 +2,8 @@ package org.dase.cogan.sdont.ui;
 
 import java.util.Scanner;
 
+import org.dase.cogan.sdont.model.SDGraph;
 import org.dase.cogan.sdont.parsing.OntologyParser;
-import org.dase.cogan.sdont.viz.SDGraph;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 
 public class SDontConsole

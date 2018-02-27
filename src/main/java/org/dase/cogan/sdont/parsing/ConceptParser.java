@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.dase.cogan.sdont.viz.SDNode;
+import org.dase.cogan.sdont.model.SDNode;
 import org.semanticweb.owlapi.model.OWLClass;
 import org.semanticweb.owlapi.model.OWLDatatype;
 import org.semanticweb.owlapi.util.ShortFormProvider;
