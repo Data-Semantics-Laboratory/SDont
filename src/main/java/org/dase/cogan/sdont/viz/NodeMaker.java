@@ -1,9 +1,12 @@
 package org.dase.cogan.sdont.viz;
 
-import org.dase.cogan.sdont.model.SDNode;
-import org.dase.cogan.sdont.parsing.Triple;
+import java.util.Map;
+import java.util.Set;
 
-public interface NodeMaker
+import org.dase.cogan.sdont.model.SDNode;
+
+public interface NodeMaker<T>
 {
-	public SDNode makeNode(Triple t);
+	public Map<String, T> makeNodes(Set<SDNode> nodes);
+	public T makeNode(SDNode node);
 }

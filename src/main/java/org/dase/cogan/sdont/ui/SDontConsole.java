@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import org.dase.cogan.sdont.model.SDGraph;
 import org.dase.cogan.sdont.parsing.OntologyParser;
+import org.dase.cogan.sdont.viz.SDMaker;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 
 public class SDontConsole
@@ -17,7 +18,7 @@ public class SDontConsole
 		{
 			System.out.print("Enter name (or empty string to quit): ");
 
-			String filename = keyboard.nextLine();
+			String filename = "resources/" + keyboard.nextLine();
 
 			if(filename.equals(""))
 			{
@@ -29,6 +30,8 @@ public class SDontConsole
 				{
 					OntologyParser ontologyParser = new OntologyParser(filename);
 					SDGraph graph = ontologyParser.parseOntology();
+					SDMaker maker = new SDMaker(graph);
+					maker.visualize();
 				}
 				catch(OWLOntologyCreationException e)
 				{
