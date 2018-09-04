@@ -42,6 +42,19 @@ public class OWLConnector
 		this.ontology = manager.loadOntologyFromOntologyDocument(iri);
 	}
 
+	public OWLConnector(File file) throws OWLOntologyCreationException
+	{
+		// Get an ontology manager and datafactory
+		OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
+		this.dataFactory = manager.getOWLDataFactory();
+		// Force silent import errors
+		manager.setOntologyLoaderConfiguration(manager.getOntologyLoaderConfiguration()
+		        .setMissingImportHandlingStrategy(MissingImportHandlingStrategy.SILENT));
+		IRI iri = IRI.create(file.toURI());
+		// Load Ontology
+		this.ontology = manager.loadOntologyFromOntologyDocument(iri);
+	}
+	
 	public List<OWLClass> retrieveClasses()
 	{
 		return asList(this.ontology.classesInSignature());

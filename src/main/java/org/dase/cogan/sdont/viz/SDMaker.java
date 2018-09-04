@@ -86,7 +86,7 @@ public class SDMaker
 	 * adding an edge, the source and target of an edge are only set when they
 	 * are added to the model. This breaks our implementation of making the edge
 	 * and adding the edge to the model, separately. Thus, in the makeEdges call
-	 * above, we use insertEdge instead of createEdge, thus removing the nead
+	 * above, we use insertEdge instead of createEdge, thus removing the need
 	 * for an analogous (to makeNodes) update try/catch block here.
 	 * 
 	 * @param parent

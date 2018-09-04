@@ -16,7 +16,6 @@ public class SDontViewFrame extends JFrame
 		getContentPane().add(graphComponent);
 		setSize(1000, 1000);
 		setLocationRelativeTo(null);
-		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		setVisible(true);
 	}
 }

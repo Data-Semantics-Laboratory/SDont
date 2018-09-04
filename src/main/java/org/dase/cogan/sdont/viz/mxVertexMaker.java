@@ -48,11 +48,11 @@ public class mxVertexMaker implements NodeMaker<Object>
 		Object vertex = null;
 		if(node.isDatatype())
 		{
-			vertex = this.graph.createVertex(parent, id, value, 0, 0, 100, 100, datatypeStyle);
+			vertex = this.graph.createVertex(parent, id, value, 0, 0, 75, 30, datatypeStyle);
 		}
 		else
 		{
-			vertex = this.graph.createVertex(parent, id, value, 0, 0, 100, 100, standardStyle);
+			vertex = this.graph.createVertex(parent, id, value, 0, 0, 75, 30, standardStyle);
 		}
 
 		return vertex;

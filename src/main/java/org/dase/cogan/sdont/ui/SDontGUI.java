@@ -3,17 +3,24 @@ package org.dase.cogan.sdont.ui;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 
 import javax.swing.JButton;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
+
+import org.dase.cogan.sdont.model.SDGraph;
+import org.dase.cogan.sdont.parsing.OntologyParser;
+import org.dase.cogan.sdont.viz.SDMaker;
+import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 
 public class SDontGUI
 {
 	public void run()
 	{
 		// create a top-level window and add the graph component.
-		JFrame frame = new JFrame("SD4ODP");
+		JFrame frame = new JFrame("SDOnt");
 
 		frame.setLayout(new FlowLayout());
 
@@ -25,7 +32,26 @@ public class SDontGUI
 			@Override
 			public void actionPerformed(ActionEvent ae)
 			{
-				// TODO finish actionlistener
+				// Get File from user
+				JFileChooser jfc = new JFileChooser();
+				int returnVal = jfc.showOpenDialog(frame);
+				
+				if(returnVal == JFileChooser.APPROVE_OPTION)
+				{
+					File file = jfc.getSelectedFile();
+					// Visualize
+					try
+					{
+						OntologyParser ontologyParser = new OntologyParser(file);
+						SDGraph graph = ontologyParser.parseOntology();
+						SDMaker maker = new SDMaker(graph);
+						maker.visualize();
+					}
+					catch(OWLOntologyCreationException e)
+					{
+						System.out.println("Could not create ontology from file: " + file.getName());
+					}
+				}
 			}
 		});
 
