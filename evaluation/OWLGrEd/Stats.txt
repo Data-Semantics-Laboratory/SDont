@@ -1,0 +1,5 @@
+108 Patterns
+22 Errors
+
+percent analyzed
+0.20370370...
